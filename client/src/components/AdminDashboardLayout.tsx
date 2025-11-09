@@ -27,17 +27,17 @@ export default function AdminDashboardLayout({ children }: AdminDashboardLayoutP
   // Check if user is admin
   if (!isAuthenticated || user?.role !== 'admin') {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center">
-        <Card className="bg-slate-800/50 border-red-500/20 max-w-md w-full mx-4">
+      <div className="min-h-screen bg-gradient-to-br from-white via-blue-50 to-slate-50 flex items-center justify-center">
+        <Card className="bg-white border-red-200 max-w-md w-full mx-4 shadow-xl">
           <CardHeader>
-            <CardTitle className="text-red-400 text-center">Access Denied</CardTitle>
+            <CardTitle className="text-red-600 text-center">Access Denied</CardTitle>
           </CardHeader>
           <CardContent className="text-center">
-            <p className="text-slate-300 mb-4">
+            <p className="text-slate-600 mb-4">
               You need administrator privileges to access this area.
             </p>
             <Link href="/">
-              <Button variant="outline">Return to Home</Button>
+              <Button variant="outline" className="border-slate-300 text-slate-600 hover:bg-slate-50">Return to Home</Button>
             </Link>
           </CardContent>
         </Card>
@@ -91,16 +91,16 @@ export default function AdminDashboardLayout({ children }: AdminDashboardLayoutP
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+    <div className="min-h-screen bg-gradient-to-br from-white via-blue-50 to-slate-50">
       {/* Top Navigation */}
-      <nav className="sticky top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-purple-500/20">
+      <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-blue-200/50 shadow-sm">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <Link href="/admin">
-            <div className="flex items-center gap-2 cursor-pointer">
-              <div className="w-8 h-8 bg-gradient-to-br from-purple-400 to-pink-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">⚔️</span>
+            <div className="flex items-center gap-3 cursor-pointer">
+              <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center shadow-lg">
+                <span className="text-white font-bold text-lg">⚔️</span>
               </div>
-              <span className="text-xl font-bold text-white hidden sm:inline">
+              <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent hidden sm:inline">
                 {APP_TITLE} Admin
               </span>
             </div>
@@ -108,14 +108,14 @@ export default function AdminDashboardLayout({ children }: AdminDashboardLayoutP
 
           <div className="flex items-center gap-2 sm:gap-4">
             <Link href="/">
-              <Button variant="ghost" size="sm">
+              <Button variant="ghost" size="sm" className="text-slate-600 hover:text-blue-600">
                 View Site
               </Button>
             </Link>
-            <div className="text-sm text-slate-300">
+            <div className="text-sm text-slate-600">
               Welcome, {user?.name}
             </div>
-            <div className="w-8 h-8 bg-gradient-to-br from-green-400 to-blue-600 rounded-full flex items-center justify-center">
+            <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full flex items-center justify-center shadow-lg">
               <span className="text-white font-semibold text-sm">
                 {user?.name?.charAt(0) || 'A'}
               </span>
@@ -126,16 +126,16 @@ export default function AdminDashboardLayout({ children }: AdminDashboardLayoutP
 
       <div className="flex">
         {/* Sidebar */}
-        <div className="w-64 min-h-screen bg-slate-950/50 border-r border-purple-500/20 p-4">
+        <div className="w-64 min-h-screen bg-white/50 border-r border-blue-200/50 p-4 backdrop-blur-sm">
           <nav className="space-y-2">
             {navItems.map((item) => {
               const Icon = item.icon;
               return (
                 <Link key={item.href} href={item.href}>
-                  <div className={`flex items-center gap-3 px-3 py-2 rounded-md cursor-pointer transition-colors ${
+                  <div className={`flex items-center gap-3 px-4 py-3 rounded-xl cursor-pointer transition-all ${
                     item.active 
-                      ? 'bg-purple-600 text-white' 
-                      : 'text-slate-300 hover:text-white hover:bg-slate-800'
+                      ? 'bg-blue-500 text-white shadow-lg' 
+                      : 'text-slate-600 hover:text-blue-600 hover:bg-blue-50'
                   }`}>
                     <Icon className="w-5 h-5" />
                     <span className="font-medium">{item.label}</span>
@@ -147,7 +147,7 @@ export default function AdminDashboardLayout({ children }: AdminDashboardLayoutP
         </div>
 
         {/* Main Content */}
-        <div className="flex-1 p-6">
+        <div className="flex-1 p-8 bg-gradient-to-br from-slate-50/50 to-blue-50/50">
           {children}
         </div>
       </div>

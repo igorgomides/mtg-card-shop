@@ -124,17 +124,17 @@ export default function CardSourcing() {
       <div className="space-y-6">
         {/* Header */}
         <div>
-          <h1 className="text-3xl font-bold text-white mb-2">Card Sourcing</h1>
-          <p className="text-slate-300">
+          <h1 className="text-4xl font-bold text-slate-800 mb-3">Card Sourcing</h1>
+          <p className="text-slate-600 text-lg">
             Search for cards from various trading card games and add them to your inventory.
           </p>
         </div>
 
         {/* Search Form */}
-        <Card className="bg-slate-800/50 border-purple-500/20">
+        <Card className="bg-white/80 border-blue-200/50 shadow-lg backdrop-blur-sm">
           <CardHeader>
-            <CardTitle className="text-white flex items-center gap-2">
-              <Search className="w-5 h-5" />
+            <CardTitle className="text-slate-800 flex items-center gap-2 text-xl">
+              <Search className="w-6 h-6 text-blue-500" />
               Search External Sources
             </CardTitle>
           </CardHeader>
@@ -142,7 +142,7 @@ export default function CardSourcing() {
             <form onSubmit={handleSearch} className="space-y-4">
               <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                 <div className="md:col-span-2">
-                  <label className="block text-sm font-medium text-slate-300 mb-2">
+                  <label className="block text-sm font-medium text-slate-700 mb-2">
                     Card Name
                   </label>
                   <Input
@@ -150,18 +150,18 @@ export default function CardSourcing() {
                     placeholder="Search for cards..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="bg-slate-700 border-slate-600 text-white placeholder:text-slate-400"
+                    className="bg-white border-blue-200 text-slate-800 placeholder:text-slate-400 focus:ring-blue-500 focus:border-blue-500"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-slate-300 mb-2">
+                  <label className="block text-sm font-medium text-slate-700 mb-2">
                     Trading Card Game
                   </label>
                   <Select value={selectedGame} onValueChange={setSelectedGame}>
-                    <SelectTrigger className="bg-slate-700 border-slate-600 text-white">
+                    <SelectTrigger className="bg-white border-blue-200 text-slate-800">
                       <SelectValue placeholder="Select a game" />
                     </SelectTrigger>
-                    <SelectContent className="bg-slate-700 border-slate-600">
+                    <SelectContent className="bg-white border-blue-200">
                       <SelectItem value="mtg">Magic: The Gathering</SelectItem>
                       <SelectItem value="yugioh">Yu-Gi-Oh!</SelectItem>
                       <SelectItem value="pokemon">Pokémon</SelectItem>
@@ -178,7 +178,7 @@ export default function CardSourcing() {
                   </Select>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-slate-300 mb-2">
+                  <label className="block text-sm font-medium text-slate-700 mb-2">
                     Max Price (USD)
                   </label>
                   <Input
@@ -186,7 +186,7 @@ export default function CardSourcing() {
                     placeholder="50"
                     value={maxPrice}
                     onChange={(e) => setMaxPrice(Number(e.target.value))}
-                    className="bg-slate-700 border-slate-600 text-white placeholder:text-slate-400"
+                    className="bg-white border-blue-200 text-slate-800 placeholder:text-slate-400 focus:ring-blue-500 focus:border-blue-500"
                   />
                 </div>
               </div>
@@ -195,7 +195,7 @@ export default function CardSourcing() {
                 <Button 
                   type="submit" 
                   disabled={isSearching || !searchQuery.trim()}
-                  className="bg-gradient-to-r from-purple-500 to-pink-600 hover:from-purple-600 hover:to-pink-700"
+                  className="bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-medium"
                 >
                   {isSearching ? 'Searching...' : 'Search Cards'}
                 </Button>
@@ -210,7 +210,7 @@ export default function CardSourcing() {
                       setIsSearching(false);
                       setSearchResults([]);
                     }}
-                    className="border-slate-600 text-slate-300 hover:bg-slate-700"
+                    className="border-blue-300 text-blue-600 hover:bg-blue-50"
                   >
                     Cancel
                   </Button>
@@ -223,7 +223,7 @@ export default function CardSourcing() {
         {/* Search Results */}
         {searchResults.length > 0 && (
           <div>
-            <h2 className="text-2xl font-bold text-white mb-4">
+            <h2 className="text-3xl font-bold text-slate-800 mb-6">
               Found {searchResults.length} {getGameDisplayName(selectedGame)} cards under ${maxPrice}
             </h2>
             
@@ -235,7 +235,7 @@ export default function CardSourcing() {
                 return (
                   <Card 
                     key={card.scryfallId} 
-                    className="bg-slate-800/50 border-purple-500/20 group hover:border-purple-400/40 transition-all duration-200 hover:scale-[1.02] cursor-pointer"
+                    className="bg-white/80 border-blue-200/50 group hover:border-blue-300/60 transition-all duration-300 hover:scale-[1.02] cursor-pointer shadow-lg hover:shadow-xl backdrop-blur-sm"
                     onClick={() => {
                       console.log('Card clicked:', card.name, 'URL:', primaryPurchaseUrl);
                       if (primaryPurchaseUrl) {
@@ -249,23 +249,23 @@ export default function CardSourcing() {
                   <CardHeader className="pb-3">
                     <div className="flex justify-between items-start">
                       <div className="flex-1">
-                        <CardTitle className="text-white text-lg line-clamp-2 mb-1">
+                        <CardTitle className="text-slate-800 text-lg line-clamp-2 mb-1">
                           {card.name}
                         </CardTitle>
                         <div className="flex items-center gap-2 mb-1">
-                          <Badge className="bg-blue-600 text-white text-xs">
+                          <Badge className="bg-blue-500 text-white text-xs">
                             {getGameDisplayName(selectedGame)}
                           </Badge>
-                          <p className="text-purple-400 text-sm capitalize">{card.rarity}</p>
+                          <p className="text-blue-600 text-sm capitalize font-medium">{card.rarity}</p>
                         </div>
-                        <p className="text-slate-400 text-sm">{card.setName}</p>
+                        <p className="text-slate-500 text-sm">{card.setName}</p>
                       </div>
                       <div className="text-right">
-                        <div className="text-2xl font-bold text-green-400">
+                        <div className="text-2xl font-bold text-green-600">
                           {formatPrice(card.priceUsd)}
                         </div>
                         {card.costBenefitScore && (
-                          <div className="text-sm text-slate-400">
+                          <div className="text-sm text-slate-500">
                             Value: {card.costBenefitScore}
                           </div>
                         )}
@@ -285,34 +285,34 @@ export default function CardSourcing() {
                     <div className="space-y-2 text-sm">
                       {card.manaCost && (
                         <div className="flex justify-between">
-                          <span className="text-slate-400">
+                          <span className="text-slate-500">
                             {selectedGame === 'mtg' ? 'Mana Cost:' : 
                              selectedGame === 'pokemon' ? 'Energy Cost:' : 
                              selectedGame === 'yugioh' ? 'Level/Rank:' : 'Cost:'}
                           </span>
-                          <span className="text-white">{card.manaCost}</span>
+                          <span className="text-slate-800 font-medium">{card.manaCost}</span>
                         </div>
                       )}
                       <div className="flex justify-between">
-                        <span className="text-slate-400">Type:</span>
-                        <span className="text-white">{card.typeLine}</span>
+                        <span className="text-slate-500">Type:</span>
+                        <span className="text-slate-800 font-medium">{card.typeLine}</span>
                       </div>
                       {card.power && (
                         <div className="flex justify-between">
-                          <span className="text-slate-400">
+                          <span className="text-slate-500">
                             {selectedGame === 'mtg' ? 'P/T:' : 
                              selectedGame === 'pokemon' ? 'HP:' : 
                              selectedGame === 'yugioh' ? 'ATK/DEF:' : 'Stats:'}
                           </span>
-                          <span className="text-white">
+                          <span className="text-slate-800 font-medium">
                             {card.toughness ? `${card.power}/${card.toughness}` : card.power}
                           </span>
                         </div>
                       )}
                       {card.setName && (
                         <div className="flex justify-between">
-                          <span className="text-slate-400">Set:</span>
-                          <span className="text-white truncate ml-2">{card.setName}</span>
+                          <span className="text-slate-500">Set:</span>
+                          <span className="text-slate-800 font-medium truncate ml-2">{card.setName}</span>
                         </div>
                       )}
                     </div>
@@ -342,7 +342,7 @@ export default function CardSourcing() {
                             e.stopPropagation();
                             window.open(card.scryfallUrl, '_blank');
                           }}
-                          className="flex-1 border-slate-600 text-slate-300 hover:bg-slate-700"
+                          className="flex-1 border-blue-300 text-blue-600 hover:bg-blue-50"
                         >
                           <Eye className="w-4 h-4 mr-1" />
                           Details
@@ -357,7 +357,7 @@ export default function CardSourcing() {
                             e.stopPropagation();
                             window.open(card.cardmarketUrl, '_blank');
                           }}
-                          className="flex-1 border-slate-600 text-slate-300 hover:bg-slate-700"
+                          className="flex-1 border-blue-300 text-blue-600 hover:bg-blue-50"
                         >
                           <ExternalLink className="w-4 h-4 mr-1" />
                           EU
@@ -375,8 +375,8 @@ export default function CardSourcing() {
                       className={`w-full ${
                         card.isAdded 
                           ? 'bg-green-600 hover:bg-green-700' 
-                          : 'bg-gradient-to-r from-purple-500 to-pink-600 hover:from-purple-600 hover:to-pink-700'
-                      }`}
+                          : 'bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600'
+                      } text-white font-medium`}
                     >
                       {card.isAdded ? (
                         <>
@@ -400,9 +400,9 @@ export default function CardSourcing() {
 
         {/* No Results */}
         {searchQuery && searchResults.length === 0 && !isSearching && (
-          <Card className="bg-slate-800/50 border-purple-500/20">
+          <Card className="bg-white/80 border-blue-200/50 shadow-lg backdrop-blur-sm">
             <CardContent className="text-center py-12">
-              <p className="text-slate-400 text-lg">
+              <p className="text-slate-600 text-lg">
                 No cards found under ${maxPrice}. Try a different search term or increase the price limit.
               </p>
             </CardContent>

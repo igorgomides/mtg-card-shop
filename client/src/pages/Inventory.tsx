@@ -158,25 +158,25 @@ export default function Inventory() {
       <div className="space-y-6">
         {/* Header */}
         <div>
-          <h1 className="text-3xl font-bold text-white mb-2">Inventory Management</h1>
-          <p className="text-slate-300">
+          <h1 className="text-4xl font-bold text-slate-800 mb-3">Inventory Management</h1>
+          <p className="text-slate-600 text-lg">
             Manage your MTG card inventory, update prices, and track stock.
           </p>
         </div>
 
         {/* Search and Filters */}
-        <Card className="bg-slate-800/50 border-purple-500/20">
+        <Card className="bg-white/80 border-blue-200/50 shadow-lg backdrop-blur-sm">
           <CardHeader>
-            <CardTitle className="text-white flex items-center justify-between">
+            <CardTitle className="text-slate-800 flex items-center justify-between text-xl">
               <div className="flex items-center gap-2">
-                <Search className="w-5 h-5" />
+                <Search className="w-6 h-6 text-blue-500" />
                 Search & Filter Inventory
               </div>
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={() => setShowFilters(!showFilters)}
-                className="text-slate-300"
+                className="text-blue-600 hover:bg-blue-50"
               >
                 <Filter className="w-4 h-4 mr-2" />
                 {showFilters ? 'Hide' : 'Show'} Filters
@@ -191,19 +191,19 @@ export default function Inventory() {
                 placeholder="Search cards by name..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="bg-slate-700 border-slate-600 text-white placeholder:text-slate-400"
+                className="bg-white border-blue-200 text-slate-800 placeholder:text-slate-400 focus:ring-blue-500 focus:border-blue-500"
               />
             </div>
 
             {/* Advanced Filters */}
             {showFilters && (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 pt-4 border-t border-slate-600">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 pt-4 border-t border-blue-200">
                 <div>
-                  <label className="block text-sm font-medium text-slate-300 mb-2">
+                  <label className="block text-sm font-medium text-slate-700 mb-2">
                     Rarity
                   </label>
                   <Select value={rarityFilter} onValueChange={setRarityFilter}>
-                    <SelectTrigger className="bg-slate-700 border-slate-600 text-white">
+                    <SelectTrigger className="bg-white border-blue-200 text-slate-800">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
@@ -217,7 +217,7 @@ export default function Inventory() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-slate-300 mb-2">
+                  <label className="block text-sm font-medium text-slate-700 mb-2">
                     Min Price
                   </label>
                   <Input
@@ -225,12 +225,12 @@ export default function Inventory() {
                     placeholder="0.00"
                     value={minPrice || ""}
                     onChange={(e) => setMinPrice(e.target.value ? Number(e.target.value) : undefined)}
-                    className="bg-slate-700 border-slate-600 text-white placeholder:text-slate-400"
+                    className="bg-white border-blue-200 text-slate-800 placeholder:text-slate-400 focus:ring-blue-500 focus:border-blue-500"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-slate-300 mb-2">
+                  <label className="block text-sm font-medium text-slate-700 mb-2">
                     Max Price
                   </label>
                   <Input
@@ -238,12 +238,12 @@ export default function Inventory() {
                     placeholder="999.99"
                     value={maxPrice || ""}
                     onChange={(e) => setMaxPrice(e.target.value ? Number(e.target.value) : undefined)}
-                    className="bg-slate-700 border-slate-600 text-white placeholder:text-slate-400"
+                    className="bg-white border-blue-200 text-slate-800 placeholder:text-slate-400 focus:ring-blue-500 focus:border-blue-500"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-slate-300 mb-2">
+                  <label className="block text-sm font-medium text-slate-700 mb-2">
                     Sort By
                   </label>
                   <Select value={`${sortBy}-${sortOrder}`} onValueChange={(value) => {
@@ -251,7 +251,7 @@ export default function Inventory() {
                     setSortBy(field);
                     setSortOrder(order as "asc" | "desc");
                   }}>
-                    <SelectTrigger className="bg-slate-700 border-slate-600 text-white">
+                    <SelectTrigger className="bg-white border-blue-200 text-slate-800">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
@@ -277,12 +277,12 @@ export default function Inventory() {
         {inventoryQuery.isLoading ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
             {Array.from({ length: 8 }).map((_, i) => (
-              <Card key={i} className="bg-slate-800/50 border-purple-500/20 animate-pulse">
+              <Card key={i} className="bg-white/80 border-blue-200/50 shadow-lg backdrop-blur-sm animate-pulse">
                 <CardContent className="p-4">
-                  <div className="h-48 bg-slate-700 rounded mb-4"></div>
-                  <div className="h-4 bg-slate-700 rounded mb-2"></div>
-                  <div className="h-3 bg-slate-700 rounded mb-1"></div>
-                  <div className="h-3 bg-slate-700 rounded w-1/2"></div>
+                  <div className="h-48 bg-blue-100 rounded mb-4"></div>
+                  <div className="h-4 bg-blue-100 rounded mb-2"></div>
+                  <div className="h-3 bg-blue-100 rounded mb-1"></div>
+                  <div className="h-3 bg-blue-100 rounded w-1/2"></div>
                 </CardContent>
               </Card>
             ))}
@@ -290,7 +290,7 @@ export default function Inventory() {
         ) : cards.length > 0 ? (
           <>
             <div className="flex items-center justify-between">
-              <p className="text-slate-300">
+              <p className="text-slate-600">
                 Showing {cards.length} cards {totalCards === itemsPerPage && '(may be more)'}
               </p>
               <div className="flex items-center gap-2">
@@ -299,18 +299,18 @@ export default function Inventory() {
                   size="sm"
                   onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))}
                   disabled={currentPage === 1}
-                  className="border-slate-600 text-slate-300"
+                  className="border-blue-300 text-blue-600 hover:bg-blue-50"
                 >
                   <ChevronLeft className="w-4 h-4 mr-1" />
                   Previous
                 </Button>
-                <span className="text-slate-300 px-2">Page {currentPage}</span>
+                <span className="text-slate-600 px-2">Page {currentPage}</span>
                 <Button
                   variant="outline"
                   size="sm"
                   onClick={() => setCurrentPage(prev => prev + 1)}
                   disabled={!hasNextPage}
-                  className="border-slate-600 text-slate-300"
+                  className="border-blue-300 text-blue-600 hover:bg-blue-50"
                 >
                   Next
                   <ChevronRight className="w-4 h-4 ml-1" />
@@ -320,7 +320,7 @@ export default function Inventory() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
               {cards.map((card: any) => (
-                <Card key={card.id} className="bg-slate-800/50 border-purple-500/20 group hover:border-purple-400/40 transition-colors">
+                <Card key={card.id} className="bg-white/80 border-blue-200/50 shadow-lg group hover:border-blue-300/60 transition-all duration-300 hover:shadow-xl backdrop-blur-sm">
                   <CardContent className="p-4">
                     {/* Card Image */}
                     {card.imageUrl && (
@@ -340,48 +340,48 @@ export default function Inventory() {
 
                     {/* Card Info */}
                     <div className="space-y-2">
-                      <h3 className="font-semibold text-white line-clamp-2 group-hover:text-purple-300 transition-colors">
+                      <h3 className="font-semibold text-slate-800 line-clamp-2 group-hover:text-blue-600 transition-colors">
                         {card.name}
                       </h3>
                       
-                      <div className="text-sm text-slate-400 space-y-1">
+                      <div className="text-sm text-slate-500 space-y-1">
                         <div className="flex justify-between">
                           <span>Set:</span>
-                          <span className="text-slate-300">{card.setName}</span>
+                          <span className="text-slate-700 font-medium">{card.setName}</span>
                         </div>
                         
                         {card.manaCost && (
                           <div className="flex justify-between">
                             <span>Mana:</span>
-                            <span className="text-slate-300">{card.manaCost}</span>
+                            <span className="text-slate-700 font-medium">{card.manaCost}</span>
                           </div>
                         )}
                         
                         <div className="flex justify-between">
                           <span>Type:</span>
-                          <span className="text-slate-300 truncate ml-2">{card.typeLine}</span>
+                          <span className="text-slate-700 font-medium truncate ml-2">{card.typeLine}</span>
                         </div>
                       </div>
 
                       {/* Pricing */}
-                      <div className="bg-slate-700/50 rounded p-3 space-y-1">
+                      <div className="bg-blue-50/80 rounded p-3 space-y-1 border border-blue-100">
                         <div className="flex justify-between items-center">
-                          <span className="text-sm text-slate-400">USD:</span>
-                          <span className="font-semibold text-green-400">{formatPrice(card.priceUsd)}</span>
+                          <span className="text-sm text-slate-500">USD:</span>
+                          <span className="font-semibold text-green-600">{formatPrice(card.priceUsd)}</span>
                         </div>
                         {card.priceEur && (
                           <div className="flex justify-between items-center">
-                            <span className="text-sm text-slate-400">EUR:</span>
-                            <span className="font-semibold text-blue-400">€{parseFloat(card.priceEur).toFixed(2)}</span>
+                            <span className="text-sm text-slate-500">EUR:</span>
+                            <span className="font-semibold text-blue-600">€{parseFloat(card.priceEur).toFixed(2)}</span>
                           </div>
                         )}
                         {card.priceFoil && (
                           <div className="flex justify-between items-center">
-                            <span className="text-sm text-slate-400 flex items-center gap-1">
+                            <span className="text-sm text-slate-500 flex items-center gap-1">
                               <Sparkles className="w-3 h-3" />
                               Foil:
                             </span>
-                            <span className="font-semibold text-yellow-400">${parseFloat(card.priceFoil).toFixed(2)}</span>
+                            <span className="font-semibold text-yellow-500">${parseFloat(card.priceFoil).toFixed(2)}</span>
                           </div>
                         )}
                       </div>
@@ -392,7 +392,7 @@ export default function Inventory() {
                           size="sm"
                           variant="outline"
                           onClick={() => handleEditCard(card)}
-                          className="flex-1 border-slate-600 text-slate-300 hover:bg-slate-700"
+                          className="flex-1 border-blue-300 text-blue-600 hover:bg-blue-50"
                         >
                           <Edit3 className="w-3 h-3 mr-1" />
                           Edit
@@ -408,15 +408,15 @@ export default function Inventory() {
                               <Trash2 className="w-3 h-3" />
                             </Button>
                           </AlertDialogTrigger>
-                          <AlertDialogContent className="bg-slate-800 border-red-500/20">
+                          <AlertDialogContent className="bg-white border-red-200">
                             <AlertDialogHeader>
-                              <AlertDialogTitle className="text-white">Delete Card</AlertDialogTitle>
-                              <AlertDialogDescription className="text-slate-300">
+                              <AlertDialogTitle className="text-slate-800">Delete Card</AlertDialogTitle>
+                              <AlertDialogDescription className="text-slate-600">
                                 Are you sure you want to delete "{card.name}" from your inventory? This action cannot be undone.
                               </AlertDialogDescription>
                             </AlertDialogHeader>
                             <AlertDialogFooter>
-                              <AlertDialogCancel className="border-slate-600 text-slate-300">Cancel</AlertDialogCancel>
+                              <AlertDialogCancel className="border-blue-300 text-blue-600 hover:bg-blue-50">Cancel</AlertDialogCancel>
                               <AlertDialogAction
                                 onClick={() => handleDeleteCard(card.id)}
                                 className="bg-red-600 hover:bg-red-700"
@@ -434,10 +434,10 @@ export default function Inventory() {
             </div>
           </>
         ) : (
-          <Card className="bg-slate-800/50 border-purple-500/20">
+          <Card className="bg-white/80 border-blue-200/50 shadow-lg backdrop-blur-sm">
             <CardContent className="text-center py-12">
-              <Package className="w-16 h-16 text-slate-500 mx-auto mb-4" />
-              <p className="text-slate-400 text-lg mb-2">No cards found</p>
+              <Package className="w-16 h-16 text-blue-400 mx-auto mb-4" />
+              <p className="text-slate-700 text-lg mb-2">No cards found</p>
               <p className="text-slate-500 text-sm">
                 {searchQuery || rarityFilter !== "all" || minPrice || maxPrice
                   ? "Try adjusting your search criteria or filters."
@@ -450,17 +450,17 @@ export default function Inventory() {
         {/* Edit Card Dialog */}
         {editingCard && (
           <AlertDialog open={!!editingCard} onOpenChange={() => setEditingCard(null)}>
-            <AlertDialogContent className="bg-slate-800 border-purple-500/20 max-w-md">
+            <AlertDialogContent className="bg-white border-blue-200 max-w-md">
               <AlertDialogHeader>
-                <AlertDialogTitle className="text-white">Edit Card Pricing</AlertDialogTitle>
-                <AlertDialogDescription className="text-slate-300">
+                <AlertDialogTitle className="text-slate-800">Edit Card Pricing</AlertDialogTitle>
+                <AlertDialogDescription className="text-slate-600">
                   Update pricing information for "{editingCard.name}"
                 </AlertDialogDescription>
               </AlertDialogHeader>
               
               <div className="space-y-4 py-4">
                 <div>
-                  <label className="block text-sm font-medium text-slate-300 mb-2">
+                  <label className="block text-sm font-medium text-slate-700 mb-2">
                     USD Price
                   </label>
                   <Input
@@ -469,12 +469,12 @@ export default function Inventory() {
                     placeholder="0.00"
                     value={editPrices.priceUsd}
                     onChange={(e) => setEditPrices(prev => ({ ...prev, priceUsd: e.target.value }))}
-                    className="bg-slate-700 border-slate-600 text-white"
+                    className="bg-white border-blue-200 text-slate-800 focus:ring-blue-500 focus:border-blue-500"
                   />
                 </div>
                 
                 <div>
-                  <label className="block text-sm font-medium text-slate-300 mb-2">
+                  <label className="block text-sm font-medium text-slate-700 mb-2">
                     EUR Price
                   </label>
                   <Input
@@ -483,12 +483,12 @@ export default function Inventory() {
                     placeholder="0.00"
                     value={editPrices.priceEur}
                     onChange={(e) => setEditPrices(prev => ({ ...prev, priceEur: e.target.value }))}
-                    className="bg-slate-700 border-slate-600 text-white"
+                    className="bg-white border-blue-200 text-slate-800 focus:ring-blue-500 focus:border-blue-500"
                   />
                 </div>
                 
                 <div>
-                  <label className="block text-sm font-medium text-slate-300 mb-2">
+                  <label className="block text-sm font-medium text-slate-700 mb-2">
                     Foil Price (USD)
                   </label>
                   <Input
@@ -497,19 +497,19 @@ export default function Inventory() {
                     placeholder="0.00"
                     value={editPrices.priceFoil}
                     onChange={(e) => setEditPrices(prev => ({ ...prev, priceFoil: e.target.value }))}
-                    className="bg-slate-700 border-slate-600 text-white"
+                    className="bg-white border-blue-200 text-slate-800 focus:ring-blue-500 focus:border-blue-500"
                   />
                 </div>
               </div>
 
               <AlertDialogFooter>
-                <AlertDialogCancel className="border-slate-600 text-slate-300">
+                <AlertDialogCancel className="border-blue-300 text-blue-600 hover:bg-blue-50">
                   Cancel
                 </AlertDialogCancel>
                 <AlertDialogAction
                   onClick={handleUpdateCard}
                   disabled={updateCardMutation.isLoading}
-                  className="bg-purple-600 hover:bg-purple-700"
+                  className="bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white"
                 >
                   {updateCardMutation.isLoading ? 'Updating...' : 'Update Prices'}
                 </AlertDialogAction>
