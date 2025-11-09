@@ -1,0 +1,3 @@
+<!-- This is a placeholder for the DECK CORE logo -->
+<!-- The actual logo image should be placed in the public folder as deck-core-logo.svg or deck-core-logo.png -->
+<!-- For now, we'll use a data URL or update this once the image is properly hosted -->
