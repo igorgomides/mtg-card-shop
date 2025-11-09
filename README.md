@@ -1,6 +1,8 @@
-# 🎴 MTG Card Shop
+# 🃏 DECK CORE
 
-A comprehensive trading card game management system built with React 19, TypeScript, and Express. Support for multiple trading card games including Magic: The Gathering, Yu-Gi-Oh!, Pokémon, and more.
+**The Ultimate Trading Card Marketplace**
+
+A comprehensive trading card game management system built with React 19, TypeScript, and Express. DECK CORE supports multiple trading card games including Magic: The Gathering, Yu-Gi-Oh!, Pokémon, and more with a bright, minimalist design.
 
 ## ✨ Features
 
