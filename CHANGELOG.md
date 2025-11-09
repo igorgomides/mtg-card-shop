@@ -1,4 +1,178 @@
-# MTG Card Shop - Changelog
+# DECK CORE - Changelog
+
+## [2.0.0] - 2025-11-09 - DECK CORE Rebranding & Vercel Deployment
+
+### 🎨 **Major Brand Transformation**
+
+#### **Complete Rebranding to DECK CORE**
+- **New Brand Identity:** Transformed from "MTG Card Shop" to **DECK CORE**
+- **Professional Logo:** Updated navigation with "DC" logo badge in blue gradient
+- **Modern Tagline:** "The Ultimate Trading Card Marketplace"
+- **Bright Design System:** Complete UI overhaul with blue/cyan color palette
+
+#### **Visual Design Revolution**
+- **Color Scheme Transformation:**
+  - **Before:** Dark purple theme (`purple-500/600`, `slate-900`)
+  - **After:** Bright blue theme (`blue-500/cyan-500`, `white/blue-50`)
+- **Typography Updates:** Enhanced readability with `slate-800` on `white` backgrounds
+- **Component Styling:** Glass morphism effects with `backdrop-blur-sm`
+- **Gradient Applications:** `from-blue-500 to-cyan-500` for primary elements
+
+#### **Brand Application Across Platform**
+- **Homepage Hero:** "DECK CORE - Premium Trading Cards" with blue gradient
+- **Navigation Branding:** "DC" logo with DECK CORE text in both user and admin areas
+- **Page Titles:** Updated HTML title to "DECK CORE - Premium Trading Card Marketplace"
+- **Metadata:** Enhanced descriptions for SEO and social sharing
+
+### 🚀 **Vercel Deployment Infrastructure**
+
+#### **Production-Ready Configuration**
+- **Created `vercel.json`:** Complete deployment configuration with routing
+- **Build Scripts:** Optimized build process for client and server
+- **Environment Templates:** Comprehensive `.env.example` for all required variables
+- **Deployment Guide:** Step-by-step `DEPLOYMENT.md` documentation
+
+#### **Vercel Configuration Details:**
+```json
+{
+  "version": 2,
+  "buildCommand": "pnpm build",
+  "outputDirectory": "client/dist",
+  "functions": {
+    "dist/index.js": { "runtime": "nodejs20.x" }
+  },
+  "routes": [
+    { "src": "/api/(.*)", "dest": "/dist/index.js" },
+    { "src": "/(.*)", "dest": "/client/dist/$1" },
+    { "handle": "filesystem" },
+    { "src": "/(.*)", "dest": "/client/dist/index.html" }
+  ]
+}
+```
+
+#### **Build Process Optimization**
+- **Client Build:** `vite build` for optimized frontend bundle
+- **Server Build:** `esbuild` for Node.js serverless functions
+- **Package Scripts:** Added `vercel-build`, `build:client`, `build:server`
+- **Dependency Management:** Production-ready package.json configuration
+
+### 🎯 **User Experience Enhancements**
+
+#### **Design Philosophy Shift**
+- **Accessibility First:** Improved contrast ratios and readability
+- **Minimalist Approach:** Clean layouts with strategic whitespace
+- **Professional Appearance:** Business-ready design suitable for commerce
+- **Mobile Optimization:** Responsive design improvements across all components
+
+#### **Component-Level Updates**
+- **Global CSS (`index.css`):** Complete CSS variable overhaul
+- **Home Page (`Home.tsx`):** New hero section with DECK CORE branding
+- **Admin Dashboard (`AdminDashboardLayout.tsx`):** Clean admin interface
+- **Card Sourcing (`CardSourcing.tsx`):** Bright, intuitive search interface
+- **Inventory Management (`Inventory.tsx`):** Professional inventory controls
+
+#### **Interactive Elements**
+- **Hover Effects:** Enhanced with `hover:shadow-xl` and scale animations
+- **Button Gradients:** Consistent blue-to-cyan gradient system
+- **Card Components:** Glass morphism with `bg-white/80` transparency
+- **Loading States:** Bright blue skeleton animations
+
+### 📚 **Documentation & Developer Experience**
+
+#### **Comprehensive Deployment Guide (`DEPLOYMENT.md`)**
+- **Quick Deploy Section:** One-click Vercel deployment instructions
+- **Environment Setup:** Complete variable configuration guide
+- **Database Options:** PlanetScale and Railway setup instructions
+- **Custom Domain:** DNS configuration for branded domains
+- **Monitoring Tools:** Analytics and performance tracking setup
+
+#### **Project Documentation Updates**
+- **README.md:** Updated with DECK CORE branding and features
+- **Package.json:** Professional project metadata and descriptions
+- **Environment Templates:** Production-ready configuration examples
+
+### 🔧 **Technical Improvements**
+
+#### **Code Quality Enhancements**
+- **Fixed JSX Syntax:** Resolved CardHeader closing tag issue in Home.tsx
+- **Import Optimization:** Cleaned up unused imports and dependencies
+- **Type Safety:** Enhanced TypeScript integration across components
+- **Error Handling:** Improved error boundaries and graceful failures
+
+#### **Performance Optimizations**
+- **Bundle Optimization:** Vite build optimizations for faster loading
+- **Image Handling:** Optimized card image loading and caching
+- **CSS Efficiency:** Streamlined Tailwind classes and reduced bundle size
+- **Tree Shaking:** Eliminated unused code in production builds
+
+### 🌐 **SEO & Marketing Preparation**
+
+#### **Search Engine Optimization**
+- **Meta Tags:** Enhanced descriptions for better search visibility
+- **Page Titles:** SEO-optimized titles with DECK CORE branding
+- **Structured Data:** Prepared for trading card marketplace schema
+- **Social Sharing:** Open Graph tags for better social media integration
+
+#### **Brand Consistency**
+- **Color Consistency:** Unified blue/cyan theme across all touchpoints
+- **Typography Scale:** Consistent heading hierarchy and text sizing
+- **Component Library:** Reusable design system with brand guidelines
+- **Logo Application:** Consistent DC logo usage in navigation and branding
+
+### 📊 **Migration Statistics**
+
+#### **Files Updated for Rebranding:**
+- `client/index.html` - HTML metadata and title
+- `client/src/const.ts` - App title and logo configuration
+- `client/src/pages/Home.tsx` - Hero section and navigation branding
+- `client/src/components/AdminDashboardLayout.tsx` - Admin navigation
+- `client/src/index.css` - Complete CSS variable system
+- `package.json` - Project metadata and descriptions
+- `.env.example` - Environment variable templates
+
+#### **New Files Created:**
+- `vercel.json` - Vercel deployment configuration
+- `DEPLOYMENT.md` - Comprehensive deployment guide
+- `build.sh` - Automated build script for deployment
+
+#### **Design System Migration:**
+- **Color Variables:** 15+ CSS variables updated from purple to blue
+- **Component Styling:** 50+ component classes updated with new theme
+- **Gradient Applications:** 10+ gradient definitions updated
+- **Interactive States:** All hover and focus states redesigned
+
+### 🚀 **Production Readiness**
+
+#### **Deployment Checklist:**
+- ✅ **Vercel Configuration:** Complete deployment setup
+- ✅ **Environment Variables:** All required variables documented
+- ✅ **Build Process:** Optimized for production deployment
+- ✅ **Database Integration:** Ready for production database connection
+- ✅ **Domain Configuration:** Prepared for custom domain setup
+- ✅ **Monitoring Setup:** Analytics and error tracking integration points
+
+#### **Launch Requirements:**
+- **Database:** MySQL/PlanetScale connection string
+- **Authentication:** JWT secret and OAuth configuration
+- **External APIs:** Scryfall, YGOPRODeck, PokéTCG API keys
+- **Analytics:** Optional Umami or Google Analytics setup
+- **Domain:** Custom domain configuration (optional)
+
+### 🎯 **Business Impact**
+
+#### **Professional Positioning:**
+- **Market Ready:** Business-appropriate design for commerce platform
+- **Scalable Branding:** DECK CORE identity suitable for growth
+- **User Trust:** Professional appearance increases customer confidence
+- **Mobile Commerce:** Optimized for mobile trading card purchases
+
+#### **Technical Foundation:**
+- **Cloud Native:** Vercel-optimized for global CDN distribution
+- **Performance First:** Fast loading times for card image galleries
+- **SEO Optimized:** Search engine friendly for card discovery
+- **Accessibility Compliant:** WCAG guidelines for inclusive design
+
+---
 
 ## [1.4.0] - 2025-11-09 - GitHub Repository & Collaboration Setup
 

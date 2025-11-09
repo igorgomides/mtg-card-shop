@@ -95,10 +95,10 @@ export default function AdminDashboardLayout({ children }: AdminDashboardLayoutP
       {/* Top Navigation */}
       <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-blue-200/50 shadow-sm">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <Link href="/admin">
+          <Link href="/">
             <div className="flex items-center gap-3 cursor-pointer">
               <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center shadow-lg">
-                <span className="text-white font-bold text-lg">⚔️</span>
+                <span className="text-white font-bold text-lg">DC</span>
               </div>
               <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent hidden sm:inline">
                 {APP_TITLE} Admin
