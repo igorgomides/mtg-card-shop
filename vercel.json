@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "buildCommand": "cd client && npm run build",
+  "buildCommand": "pnpm run build",
   "outputDirectory": "client/dist",
-  "installCommand": "npm install",
+  "installCommand": "pnpm install --legacy-peer-deps",
   "framework": "vite"
 }
