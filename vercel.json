@@ -1,7 +1,7 @@
 {
   "version": 2,
   "buildCommand": "pnpm build",
-  "outputDirectory": "client/dist",
+  "outputDirectory": "dist/public",
   "functions": {
     "dist/index.js": {
       "runtime": "nodejs20.x"
@@ -14,14 +14,14 @@
     },
     {
       "src": "/(.*)",
-      "dest": "/client/dist/$1"
+      "dest": "/dist/public/$1"
     },
     {
       "handle": "filesystem"
     },
     {
       "src": "/(.*)",
-      "dest": "/client/dist/index.html"
+      "dest": "/dist/public/index.html"
     }
   ],
   "env": {
