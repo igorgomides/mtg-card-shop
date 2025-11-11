@@ -69,11 +69,11 @@ export default function Home() {
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <Link href="/">
             <div className="flex items-center gap-3 cursor-pointer">
-              <div className="h-10 flex items-center">
+              <div className="h-12 flex items-center">
                 <img 
                   src="/deck-core-logo.png" 
                   alt="DECK CORE Logo" 
-                  className="h-8 w-auto object-contain transition-opacity duration-200 hover:opacity-90"
+                  className="h-18 w-auto object-contain transition-opacity duration-200 hover:opacity-90"
                   onError={(e) => {
                     // Fallback to DC badge if image fails to load
                     const target = e.currentTarget as HTMLImageElement;
@@ -82,11 +82,11 @@ export default function Home() {
                     if (fallback) fallback.style.display = 'flex';
                   }}
                 />
-                <div className="fallback-logo w-10 h-10 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl items-center justify-center shadow-lg hidden">
-                  <span className="text-white font-bold text-lg">DC</span>
+                <div className="fallback-logo w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl items-center justify-center shadow-lg hidden">
+                  <span className="text-white font-bold text-xl">DC</span>
                 </div>
               </div>
-              <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent hidden sm:inline">{APP_TITLE}</span>
+              <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent hidden sm:inline"></span>
             </div>
           </Link>
 
@@ -169,12 +169,12 @@ export default function Home() {
           </div>
         )}
 
-        <div className="text-center mb-16">
-          <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-slate-800 mb-6 leading-tight">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600">DECK CORE</span><br />
-            Premium Trading Cards
+        <div className="text-center mb-1">
+          <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold text-slate-800 mb-6 leading-tight">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600">BEST CARD, LOWER PRICE!</span><br />
+            Premium Cards Finder
           </h1>
-          <p className="text-xl sm:text-2xl text-slate-600 mb-12 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl sm:text-1xl text-slate-600 mb-12 max-w-xl mx-auto leading-relaxed">
             The ultimate destination for trading card enthusiasts. Discover Magic: The Gathering, Yu-Gi-Oh!, Pokémon and more with the best prices and value analysis.
           </p>
 
